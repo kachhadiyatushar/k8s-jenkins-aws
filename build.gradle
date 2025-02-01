@@ -8,6 +8,19 @@ group = 'com.jhooq'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = uri("https://repo.example.com/releases")
+        }
+    }
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
