@@ -8,6 +8,13 @@ group = 'com.jhooq'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+	compile.exclude module: "spring-boot-starter-tomcat"
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -19,17 +26,6 @@ publishing {
             url = uri("https://repo.example.com/releases")
         }
     }
-}
-
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-	compile.exclude module: "spring-boot-starter-tomcat"
-}
-
-repositories {
-	mavenCentral()
 }
 
 dependencies {
